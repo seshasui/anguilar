@@ -1,64 +1,28 @@
-# Steps To Intialize Angular 4 Sample App
+# Store
 
-## Initialize npm
-Generate "package.json" file after entering defaults
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
-```
-npm init
-```
+## Development server
 
-## Install minimum required libraries
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-```
-npm install --save @angular/core @angular/common @angular/compiler @angular/platform-browser @angular/platform-browser-dynamic @angular/forms @angular/router @angular/http rxjs zone.js core-js
-```
+## Code scaffolding
 
-## Install typescript
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-```
-npm install --save-dev typescript tslint @types/node
-npm install -g typescript
-```
+## Build
 
-## Install Webpack, Webpack-dev-server and other required plugins
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-```
-npm install --save-dev webpack webpack-dev-server html-webpack-plugin extract-text-webpack-plugin raw-loader css-loader style-loader sass-loader node-sass url-loader file-loader awesome-typescript-loader angular2-template-loader
-```
+## Running unit tests
 
-## Initialize Type Script Config
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-```
-tsc --init
-```
+## Running end-to-end tests
 
-## Add buil step to package.json in sripts section
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
 
-```
-"build": "webpack-dev-server --config webpack/webpack.config.js"
-```
+## Further help
 
-## Run local dev
-
-```
-npm run build
-```
-
-## Install karma and jasmine for unit test purposes
-
-```
-npm install --save-dev karma jasmine @types/jasmine karma-jasmine karma-cli
-```
-
-## Initalize karma
-
-```
-karma init
-```
-
-## Install karma webpack
-
-```
-npm install --save-dev karma-webpack karma-sourcemap-loader
-```
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
