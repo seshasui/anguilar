@@ -14,6 +14,7 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AuthComponent } from './auth/auth.component';
     NavBarComponent,
     LoginComponent,
     HomeComponent,
-    AuthComponent
+    AuthComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
