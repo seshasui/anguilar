@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatCardModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -31,7 +31,8 @@ import { AuthComponent } from './auth/auth.component';
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   providers: [
     AuthGuard,
