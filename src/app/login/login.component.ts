@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     if (result) {
       this.router.navigate(['/authorized/home']);
     }else {
-      throw new Error('Login Failed');
+      return;
     }
   }
 

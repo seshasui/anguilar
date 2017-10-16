@@ -32,4 +32,8 @@ export class AuthService {
     this.user = user;
   }
 
+  getUser() {
+    return this.user ? this.user : {};
+  }
+
 }

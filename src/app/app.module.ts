@@ -18,6 +18,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AnalyticsService } from './services/analytics/analytics.service';
 import { GlobalErrorHandler } from './global-error-handler';
 import { LogService } from './services/log/log.service';
+import { WebsocketService } from './services/websocket/websocket.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LogService } from './services/log/log.service';
       provide: ErrorHandler,
       useClass: GlobalErrorHandler
     },
-    LogService
+    LogService,
+    WebsocketService
   ],
   bootstrap: [AppComponent]
 })
