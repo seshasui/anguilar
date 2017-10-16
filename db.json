@@ -1,0 +1,49 @@
+{
+  "loans": [
+    {
+      "loanAmount": 1400000.34,
+      "loanNumber": 2,
+      "sourceSystems": [
+        {
+          "end": "2025-11-16 03:11:14",
+          "eventType": null,
+          "start": "2017-10-11 08:28:41",
+          "systemName": "AppOne"
+        },
+        {
+          "end": "1971-11-26 17:05:50",
+          "eventType": null,
+          "start": "1981-07-10 00:12:55",
+          "systemName": "AppTwo"
+        },
+        {
+          "end": "1988-06-06 23:24:42",
+          "eventType": null,
+          "start": "2017-10-11 08:28:41",
+          "systemName": "AppThree"
+        }
+      ],
+      "state": "CA"
+    },
+    {
+      "loanAmount": 1432000.34,
+      "loanNumber": 1,
+      "sourceSystems": [
+        {
+          "end": "2025-11-16 03:11:14",
+          "eventType": null,
+          "start": "2017-10-11 08:28:41",
+          "systemName": "AppOne"
+        },
+        {
+          "end": "1971-11-26 17:05:50",
+          "eventType": null,
+          "start": "1981-07-10 00:12:55",
+          "systemName": "AppTwo"
+        }
+      ],
+      "state": "CA"
+    }
+
+  ]
+}

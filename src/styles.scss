@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+//@import '~bootstrap/dist/css/bootstrap.css';
 $fa-font-path: "../node_modules/font-awesome/fonts";
 
 /*  */
@@ -8,4 +9,15 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 $blue: #007bff;
 .mat-raised-button.mat-primary {
     background-color: $blue;
+}
+
+
+.badge-default {
+  background-color: #636c72;
+}
+
+.badge-pill {
+  padding-right: .6em;
+  padding-left: .6em;
+  border-radius: 10rem;
 }

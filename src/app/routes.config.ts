@@ -7,6 +7,8 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
+import { LoanListComponent } from './loan-list/loan-list.component';
+import { LoanDetailComponent } from './loan-detail/loan-detail.component';
 
 export const routes: Routes = [
     {
@@ -32,7 +34,9 @@ export const routes: Routes = [
                 path: 'home',
                 component: HomeComponent,
                 canActivate: [AuthGuard]
-            }
+            },
+            {path: 'loans/:id', component: LoanDetailComponent , canActivate: [AuthGuard] },
+          { path: 'loans', component: LoanListComponent, canActivate: [AuthGuard] },
         ]
     }
 

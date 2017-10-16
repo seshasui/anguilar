@@ -6,7 +6,8 @@ export class AuthService {
   constructor() { }
 
   isUserLoggedIn() {
-    if (this.user) {
+    if (localStorage.getItem('loggedUser')) {
+      // logged in so return true
       return true;
     }
     return false;
@@ -18,13 +19,17 @@ export class AuthService {
         name: 'Administrator',
         roles: ['admin']
       };
+
+      // local storage to avoid re-login on local refresh
+      localStorage.setItem('loggedUser', JSON.stringify(this.user));
       return this.user;
     }
     return;
   }
 
   logout() {
-    this.user = null;
+    // remove the user on logout
+    localStorage.removeItem('loggedUser')
     return;
   }
 
