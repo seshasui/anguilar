@@ -1,0 +1,18 @@
+<div class="jumbotron">
+  <div *ngIf="loan" class="container">
+    <h1 class="display-3"> Loan # {{loan.loanNumber}}</h1>
+    <h2>{{loan.loanAmount | currency}}</h2>
+    <ul *ngIf="loan.sourceSystems" class="timeline" id="timeline">
+      <li *ngFor="let loanEvent of loan.sourceSystems" class="li complete">
+        <div class="timestamp">
+          <span class="author">Test Label</span>
+          <span class="date">{{loanEvent.start |  date: 'medium'}}</span>
+        </div>
+        <div class="status">
+          <h4>{{loanEvent.systemName}} </h4>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+

@@ -1,0 +1,48 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Hello, world!</h1>
+    <p>This is a template for a simple marketing or informational website. It includes a large callout called a
+      jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+    <form class="form-inline mt-2 mt-md-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search for loans" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <h2>Loans :</h2>
+    <ul class="list-group">
+      <li class="list-group-item justify-content-between" *ngFor="let loan of loansList">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Loan#{{loan.loanNumber}}</h5>
+          <small><span class="badge badge-default badge-pill">{{loan.sourceSystems.length}}</span> {{loan.latestEvent}}
+          </small>
+        </div>
+        <!--<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>-->
+        <small>Donec id elit non mi porta.</small>
+        {{loan.loanAmount}}
+        <a [routerLink]="['/authorized/loans', loan.loanNumber]">View Loan </a>
+      </li>
+    </ul>
+
+  </div>
+
+  <input *ngIf="config.filtering" placeholder="Filter"
+         [ngTableFiltering]="config.filtering"
+         (tableChanged)="onChangeTable(config)"/>
+
+  <ng-table [config]="config.sorting"
+            (tableChanged)="onChangeTable(config)"
+            [rows]="rows" [columns]="columns">
+    Loading..
+  </ng-table>
+  <!--<pagination *ngIf="config.paging"-->
+              <!--class="pagination-sm"-->
+              <!--[(ngModel)]="page"-->
+              <!--[totalItems]="length"-->
+              <!--[itemsPerPage]="itemsPerPage"-->
+              <!--[maxSize]="maxSize"-->
+              <!--[boundaryLinks]="true"-->
+              <!--[rotate]="false"-->
+              <!--(pageChanged)="onChangeTable(config, $event)"-->
+              <!--(numPages)="numPages = $event">-->
+  <!--</pagination>-->
+  <pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre>
+</div>
