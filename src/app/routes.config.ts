@@ -9,6 +9,7 @@ import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
 import { LoanListComponent } from './loan-list/loan-list.component';
 import { LoanDetailComponent } from './loan-detail/loan-detail.component';
+import { UsersComponent } from './users/users.component';
 
 export const routes: Routes = [
     {
@@ -35,8 +36,21 @@ export const routes: Routes = [
                 component: HomeComponent,
                 canActivate: [AuthGuard]
             },
-            {path: 'loans/:id', component: LoanDetailComponent , canActivate: [AuthGuard] },
-          { path: 'loans', component: LoanListComponent, canActivate: [AuthGuard] },
+            {
+                path: 'loans/:id',
+                component: LoanDetailComponent,
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'loans',
+                component: LoanListComponent,
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'users',
+                component: UsersComponent,
+                canActivate: [AuthGuard]
+            }
         ]
     }
 
