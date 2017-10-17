@@ -34,12 +34,6 @@ import {LoanListComponent} from './loan-list/loan-list.component';
 import {LoanDetailComponent} from './loan-detail/loan-detail.component';
 import {LoanService} from './services/loan/loan.service';
 import {UsersService} from './services/users/users.service';
-import {
-  NgTableComponent,
-  NgTableFilteringDirective,
-  NgTablePagingDirective,
-  NgTableSortingDirective
-} from 'ng2-table/ng2-table';
 import { UsersComponent } from './users/users.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
@@ -52,10 +46,6 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
     AuthComponent,
     LoanListComponent,
     LoanDetailComponent,
-    NgTableComponent,
-    NgTableFilteringDirective,
-    NgTablePagingDirective,
-    NgTableSortingDirective,
     UsersComponent,
     UserDialogComponent
   ],
