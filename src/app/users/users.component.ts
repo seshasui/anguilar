@@ -47,6 +47,12 @@ export class UsersComponent implements OnInit {
       this.user.dateAdded = new Date();
       //this.users.push(this.user);
       this.usersService.addUser(this.user);
+      this.user = {
+        userName: '',
+        firstName: '',
+        lastName: '',
+        role: ''
+      };
     });
   }
 

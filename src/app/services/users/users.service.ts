@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { ActivatedRoute } from '@angular/router';
+import { LogService } from '../log/log.service';
 
 @Injectable()
 export class UsersService {
@@ -40,7 +42,7 @@ export class UsersService {
       value: 'ADMIN'
     }
   ];
-  constructor() { }
+  constructor(private logService: LogService, private route: ActivatedRoute) { }
 
 
 
@@ -49,6 +51,11 @@ export class UsersService {
   }
 
   addUser(user) {
+    let message = {
+      message: 'Added User' + user.lastName + ', ' + user.firstName,
+      url: this.route.url
+    };
+    this.logService.logData(message);
     this.usersList.push(user);
     return this.usersList;
   }

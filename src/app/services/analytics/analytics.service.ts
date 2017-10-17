@@ -1,16 +1,28 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LogService } from '../log/log.service';
 
 @Injectable()
 export class AnalyticsService {
     private user: any;
-    constructor() { }
+    constructor(private logService?: LogService, private route?: ActivatedRoute) { }
 
     public visit = (pageName) => {
-        console.log(pageName + 'visited');
+        /* let message = {
+            message: pageName + ' visited',
+            url: this.route.url
+        }; */
+        //this.logService.logData(message);
+        console.log(pageName + ' visited');
     }
 
     public leave = (pageName) => {
-        console.log(pageName + 'left');
+       /*  let message = {
+            message: pageName + ' left',
+            url: this.route.url
+        }; */
+        //this.logService.logData(message);
+        console.log(pageName + ' left');
     }
 
 }

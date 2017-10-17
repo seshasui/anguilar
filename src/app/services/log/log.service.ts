@@ -21,6 +21,7 @@ export class LogService {
     public messages: Subject<any>;
 
     constructor(webSocketService: WebsocketService, private authService: AuthService) {
+        
         this.messages = <Subject<Message>>webSocketService
             .connect(this.CHAT_URL)
             .map((response: MessageEvent): Message => {
@@ -38,6 +39,7 @@ export class LogService {
             message: error.message,
             browser: navigator.userAgent
         };
+        console.log(objToSend);
         this.messages.next(objToSend);
     }
 
@@ -51,6 +53,7 @@ export class LogService {
             message: message.message,
             browser: navigator.userAgent
         };
+        console.log(objToSend);
         this.messages.next(objToSend);
     }
 }
