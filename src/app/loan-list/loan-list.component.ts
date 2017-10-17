@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, OnInit} from '@angular/core';
+import {   MatSidenav, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 import {LoanService} from '../services/loan/loan.service';
 import {Loan} from '../models/loan';
 import 'rxjs/add/operator/switchMap';
@@ -10,14 +11,21 @@ import 'rxjs/add/operator/switchMap';
 
 })
 export class LoanListComponent implements OnInit {
+  @ViewChild('sidenav') sidenav: MatSidenav;
   loansList: Loan[] = [];
   loan: Loan;
+  selectedLoan: Loan;
 
-  constructor(private loanService: LoanService) {
+  constructor(private loanService: LoanService, private vcr: ViewContainerRef) {
   }
 
   ngOnInit() {
     this.getLoansData();
+  }
+
+  showLoanDetails(loan: Loan) {
+    this.selectedLoan = loan;
+    this.sidenav.open();
   }
 
   getLoansData() {

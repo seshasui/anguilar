@@ -1,25 +1,117 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1 class="display-3">Hello, world!</h1>
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-      jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-    <form class="form-inline mt-2 mt-md-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search for loans" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <h2>Loans :</h2>
-    <ul class="list-group">
-      <li class="list-group-item justify-content-between" *ngFor="let loan of loansList">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Loan#{{loan.loanNumber}}</h5>
-          <small><span class="badge badge-default badge-pill">{{loan.sourceSystems.length}}</span> {{loan.latestEvent}}
-          </small>
-        </div>
-        <!--<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>-->
-        <small>Donec id elit non mi porta.</small>
-        {{loan.loanAmount}}
-        <a [routerLink]="['/authorized/loans', loan.loanNumber]">View Loan </a>
-      </li>
-    </ul>
-  </div>
-</div>
+
+<section class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+  <mat-sidenav-container fxFlex>
+    <!-- sidenav -->
+    <mat-sidenav align="end" mode="side" #sidenav class="mat-elevation-z6">
+      <mat-tab-group fxFlex>
+        <mat-tab label="Loan Details">
+          <div class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+            <mat-card>
+              <mat-card-title>Name</mat-card-title>
+              <mat-card-content>
+                <p>{{selectedLoan?.loanNumber}}</p>
+              </mat-card-content>
+            </mat-card>
+            <mat-card>
+              <mat-card-title>Status</mat-card-title>
+              <mat-card-content>
+                <p>{{selectedLoan?.loanAmount}}</p>
+              </mat-card-content>
+            </mat-card>
+            <mat-card>
+              <mat-card-title>About</mat-card-title>
+              <mat-card-content>
+                <p>{{selectedLoan?.state}}</p>
+              </mat-card-content>
+            </mat-card>
+            <mat-card>
+              <mat-card-title>Source Systems</mat-card-title>
+              <mat-card-content>
+                <ul *ngIf="selectedLoan?.sourceSystems" class="timeline" id="timeline">
+                  <li *ngFor="let loanEvent of selectedLoan.sourceSystems" class="li complete">
+                    <div class="timestamp">
+                      <span class="author"></span>
+                      <span class="date">{{loanEvent.start |  date: 'medium'}}</span>
+                    </div>
+                    <div class="status">
+                      <h4>{{loanEvent.systemName}} </h4>
+                    </div>
+                  </li>
+                </ul>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="tab-action">
+
+            <button mat-fab (click)="sidenav.close()" color="warning">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </mat-tab>
+        <mat-tab label="Messages">
+          <div class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+            <mat-card *ngFor="let message of selectedLoan?.messages">
+              <mat-card-subtitle>{{message.who}} says:</mat-card-subtitle>
+              <mat-card-content>{{message.message}}</mat-card-content>
+            </mat-card>
+          </div>
+
+          <div class="tab-action">
+            <div class="flex-container" fxLayout="column" fxLayoutAlign="space-between center">
+              <button mat-mini-fab (click)="sidenav.close()" color="warning">
+                <mat-icon>close</mat-icon>
+              </button>
+              <button mat-fab (click)="addMessage()" color="primary">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Photos">
+          some photos here...
+        </mat-tab>
+      </mat-tab-group>
+    </mat-sidenav>
+    <h2>Loan Application</h2>
+    <!-- main content -->
+    <mat-grid-list cols="4" rowHeight="250px">
+      <mat-grid-tile *ngFor="let loan of loansList">
+        <mat-grid-tile-footer>
+          <h3 mat-line>{{loan.loanAmount}}</h3>
+          <span mat-line>{{loan.loanNumber}}</span>
+          <button mat-icon-button (click)="showLoanDetails(loan)">
+            <mat-icon>info</mat-icon>
+          </button>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-sidenav-container>
+
+</section>
+
+
+<!--<div class="jumbotron">-->
+  <!--<div class="container">-->
+    <!--<h1 class="display-3">Hello, world!</h1>-->
+    <!--<p>This is a template for a simple marketing or informational website. It includes a large callout called a-->
+      <!--jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>-->
+    <!--<form class="form-inline mt-2 mt-md-0">-->
+      <!--<input class="form-control mr-sm-2" type="text" placeholder="Search for loans" aria-label="Search">-->
+      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    <!--</form>-->
+    <!--<h2>Loans :</h2>-->
+    <!--<ul class="list-group">-->
+      <!--<li class="list-group-item justify-content-between" *ngFor="let loan of loansList">-->
+        <!--<div class="d-flex w-100 justify-content-between">-->
+          <!--<h5 class="mb-1">Loan#{{loan.loanNumber}}</h5>-->
+          <!--<small><span class="badge badge-default badge-pill">{{loan.sourceSystems.length}}</span> {{loan.latestEvent}}-->
+          <!--</small>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>&ndash;&gt;-->
+        <!--<small>Donec id elit non mi porta.</small>-->
+        <!--{{loan.loanAmount}}-->
+        <!--<a [routerLink]="['/authorized/loans', loan.loanNumber]">View Loan </a>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+<!--</div>-->

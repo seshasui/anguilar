@@ -2,9 +2,19 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http'
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import {MatFormFieldModule, MatInputModule, MatCardModule} from '@angular/material';
+import {HttpModule} from '@angular/http';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatSidenavModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCardModule,
+  MatGridListModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatIconModule
+} from '@angular/material';
 import {NgModule, ErrorHandler} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -30,6 +40,8 @@ import {
   NgTableSortingDirective
 } from 'ng2-table/ng2-table';
 
+//import { FilterByLoanPipe } from './loan-list/filter-by-loan.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +55,7 @@ import {
     NgTableFilteringDirective,
     NgTablePagingDirective,
     NgTableSortingDirective
+    // FilterByLoanPipe
   ],
   imports: [
     BrowserModule,
@@ -54,7 +67,12 @@ import {
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatGridListModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [
     AuthGuard,
