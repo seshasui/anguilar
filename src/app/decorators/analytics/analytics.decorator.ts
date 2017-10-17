@@ -1,5 +1,8 @@
 import { AppModule } from '../../app.module';
 import { AnalyticsService } from '../../services/analytics/analytics.service';
+import { ActivatedRoute } from '@angular/router';
+import { LogService } from '../../services/log/log.service';
+import {Injectable, Injector} from '@angular/core';
 export function PageTrack( pageName: string ): ClassDecorator {
 
   return function ( constructor: any) {

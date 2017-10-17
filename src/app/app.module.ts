@@ -15,6 +15,7 @@ import {
   MatToolbarModule,
   MatIconModule
 } from '@angular/material';
+import { MatTableModule, MatDialogModule} from '@angular/material';
 import {NgModule, ErrorHandler} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -32,15 +33,15 @@ import {WebsocketService} from './services/websocket/websocket.service';
 import {LoanListComponent} from './loan-list/loan-list.component';
 import {LoanDetailComponent} from './loan-detail/loan-detail.component';
 import {LoanService} from './services/loan/loan.service';
-
+import {UsersService} from './services/users/users.service';
 import {
   NgTableComponent,
   NgTableFilteringDirective,
   NgTablePagingDirective,
   NgTableSortingDirective
 } from 'ng2-table/ng2-table';
-
-//import { FilterByLoanPipe } from './loan-list/filter-by-loan.pipe';
+import { UsersComponent } from './users/users.component';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -54,8 +55,9 @@ import {
     NgTableComponent,
     NgTableFilteringDirective,
     NgTablePagingDirective,
-    NgTableSortingDirective
-    // FilterByLoanPipe
+    NgTableSortingDirective,
+    UsersComponent,
+    UserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +70,7 @@ import {
     MatCheckboxModule,
     MatInputModule,
     MatCardModule,
+    MatDialogModule,
     MatSidenavModule,
     MatGridListModule,
     MatTabsModule,
@@ -84,8 +87,10 @@ import {
     },
     LogService,
     WebsocketService,
-    LoanService
+    LoanService,
+    UsersService
   ],
+  entryComponents: [UserDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

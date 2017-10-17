@@ -29,7 +29,7 @@ export class AuthService {
 
   logout() {
     // remove the user on logout
-    localStorage.removeItem('loggedUser')
+    localStorage.removeItem('loggedUser');
     return;
   }
 

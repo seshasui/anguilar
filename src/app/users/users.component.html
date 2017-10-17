@@ -1,0 +1,29 @@
+<table class="table table-striped table-responsive">
+    <thead class="thead-inverse">
+        <th>
+            User Name
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Role
+        </th>
+        <th>
+            Date Added
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.userName}}</td>
+            <td>{{user.lastName}}, {{user.firstName}}</td>
+            <td>{{user.roles}}</td>
+            <td>{{user.dateAdded | date}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="clearfix">
+    <button mat-raised-button (click)="openUserDialog();"><i class="fa fa-plus"></i> Add User</button>
+</div>
