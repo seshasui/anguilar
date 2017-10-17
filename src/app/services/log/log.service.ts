@@ -17,7 +17,8 @@ export interface Message {
 @Injectable()
 export class LogService {
     private user: any;
-    private CHAT_URL = 'ws://54.172.205.78:8080/api/log';
+    private CHAT_URL = 'ws://localhost:8080/api/log';
+    //private CHAT_URL = 'ws://54.172.205.78:8080/api/log';
     public messages: Subject<any>;
 
     constructor(webSocketService: WebsocketService, private authService: AuthService) {

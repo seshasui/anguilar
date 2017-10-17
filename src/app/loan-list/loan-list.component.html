@@ -7,19 +7,19 @@
         <mat-tab label="Loan Details">
           <div class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
             <mat-card>
-              <mat-card-title>Name</mat-card-title>
+              <mat-card-title>Loan Number</mat-card-title>
               <mat-card-content>
                 <p>{{selectedLoan?.loanNumber}}</p>
               </mat-card-content>
             </mat-card>
             <mat-card>
-              <mat-card-title>Status</mat-card-title>
+              <mat-card-title>Loan Amount</mat-card-title>
               <mat-card-content>
-                <p>{{selectedLoan?.loanAmount}}</p>
+                <p>{{selectedLoan?.loanAmount | currency}}</p>
               </mat-card-content>
             </mat-card>
             <mat-card>
-              <mat-card-title>About</mat-card-title>
+              <mat-card-title>State</mat-card-title>
               <mat-card-content>
                 <p>{{selectedLoan?.state}}</p>
               </mat-card-content>
@@ -42,16 +42,14 @@
             </mat-card>
           </div>
           <div class="tab-action">
-
             <button mat-fab (click)="sidenav.close()" color="warning">
               <mat-icon>close</mat-icon>
             </button>
           </div>
         </mat-tab>
-        <mat-tab label="Messages">
+        <mat-tab label="Borrower">
           <div class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
           </div>
-
           <div class="tab-action">
             <div class="flex-container" fxLayout="column" fxLayoutAlign="space-between center">
               <button mat-mini-fab (click)="sidenav.close()" color="warning">
@@ -60,7 +58,7 @@
             </div>
           </div>
         </mat-tab>
-        <mat-tab label="Photos">
+        <mat-tab label="Property Address">
           some photos here...
         </mat-tab>
       </mat-tab-group>
@@ -69,6 +67,8 @@
     <!-- main content -->
     <mat-grid-list cols="4" rowHeight="250px">
       <mat-grid-tile *ngFor="let loan of loansList">
+        <img class="loan-logo" src="./assets/loan.svg" alt="loan Icon"/>
+        <h3> Loan # {{loan.loanNumber}}</h3>
         <mat-grid-tile-footer>
           <h3 mat-line>{{loan.loanAmount}}</h3>
           <span mat-line>{{loan.loanNumber}}</span>
