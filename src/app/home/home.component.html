@@ -17,11 +17,7 @@
 <div *ngIf="selectedWidget" class="row">
     <div class="col-md-12">
         <div class="card card-body" id="apppanel">
-<<<<<<< HEAD
-            <iframe src="https://www.ft.com/" target="_parent" height="500">
-=======
             <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(selectedWidget.url)" target="_parent" height="500">
->>>>>>> cd251bb82a9983b699579d63914d63f1479df509
         <p>Your browser does not support iframes.</p>
       </iframe>
         </div>

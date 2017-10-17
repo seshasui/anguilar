@@ -18,12 +18,12 @@ export class HomeComponent implements OnInit {
     {
       'title': 'Financial Times',
       description: 'Fiancial Times Application',
-      url: 'https://www.ft.com/?mhq5j=e5'
+      url: 'http://localhost:4202'
     },
     {
       'title': 'Financial Times',
       description: 'Fiancial Times Application',
-      url: 'https://www.ft.com/?mhq5j=e5'
+      url: 'http://localhost:4201'
     },
     {
       'title': 'Financial Times',
